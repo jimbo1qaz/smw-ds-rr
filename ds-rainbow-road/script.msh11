@@ -1,0 +1,80 @@
+label_tracks
+del_loose
+
+remap_instr \
+warn true \
+\
+string_ensemble_1	pan_flute \
+guitar(steel)		guitar(steel) \
+acoustic_grand		electric_guitar(clean) \
+overdriven_guitar	french_horn \
+dulcimer			rock_organ \
+harpsichord			string_ensemble_1 \
+bright_acoustic		synthstrings_1 \
+music_box			bass(finger) \
+blown_bottle		glockenspiel \
+gunshot				gunshot
+
+split_all
+
+# Split the synth guitar.
+filter_instr electric_guitar(clean) chain \
+		clone_append $ Bass Lead \
+\
+then	instr $ guitar(steel) \
+\
+then	instr -1 bass+lead \
+then	volume_mod -1 mult 0.75
+
+# Transpose stuff
+filter_instr rock_organ transpose $ 12
+filter_instr glockenspiel transpose $ 12
+
+filter_instr string_ensemble_1 chain \
+		clone_append $ Octave \
+then	transpose -1 12 \
+then	velocity_mod -1 mult 0.75 \
+then	merge_lazy $ -1
+
+# tweak volumes
+filter_instr rock_organ volume_mod $ mult 0.95
+# filter_instr synthstrings_1 volume_mod $ mult 0.95
+# The problem with synth strings:
+	# Obscured by glockenspiel.
+
+filter_instr string_ensemble_1 velocity_mod $ mult 1.15
+# filter_instr pan_flute velocity_mod $ mult 1.25	# DS pan flute is loud.
+filter_instr glockenspiel chain \
+		volume_mod $ mult 0.8 \
+then	trim $ 6
+
+# fix drums
+filter_instr gunshot chain \
+	remap $ \
+		24 37 bass_drum_1 \
+		38 39 electric_snare	# really high pitched ultra short snare \
+		40 40 acoustic_snare \
+		41 44 closed_hi-hat \
+		45 58 open_hi-hat \
+		59 78 crash_cymbal_1 \
+		79 79 low-mid_tom \
+		80 81 hi-mid_tom \
+		82 83 high_tom \
+		84 84 ride_cymbal_2 \
+then exec \
+	pitch_vel_mult(tracks[$], perc2note('bass drum 1'), 1.1)
+
+
+# merge drums
+filter_instr gunshot vol_combine $ 127
+merge_instr_lazy gunshot
+
+del_empty
+
+# just finishing things up
+filter_instr gunshot channel $ 9.5
+remap_instr gunshot acoustic_grand
+
+channel_all
+write rainbow.mid
+exit

@@ -1,0 +1,575 @@
+#amk 2
+
+
+
+
+
+#samples
+{
+	"ds_rr/bass.brr"
+	"ds_rr/bell.brr"
+	"ds_rr/guitar-horn.brr"
+	"ds_rr/organ.brr"
+	"ds_rr/pan.brr"
+	"ds_rr/strings.brr"
+	"ds_rr/synth.brr"
+	"ds_rr/violin.brr"
+	"default/08 SMW @6.brr"
+	"ds_rr/_bhhcrash.brr"
+	"ds_rr/_hihat.brr"
+	"ds_rr/_kickh.brr"
+	"ds_rr/_ride.brr"
+	"ds_rr/_snarehh.brr"
+	"ds_rr/_snareHi.brr"
+	"ds_rr/_tom.brr"
+}
+
+#instruments
+{
+	"ds_rr/bass.brr"       	$8F $E0 $00 $0b $08
+	"ds_rr/bell.brr"       	$CF $F8 $00 $01 $66
+	"ds_rr/guitar-horn.brr"	$8F $E0 $00 $03 $d2
+	"ds_rr/organ.brr"      	$EF $C0 $00 $02 $48
+	"ds_rr/pan.brr"        	$8F $E0 $00 $02 $a4
+	"ds_rr/strings.brr"    	$8F $E0 $00 $01 $9c
+	"ds_rr/synth.brr"      	$8F $E0 $00 $03 $8e
+	"ds_rr/violin.brr"     	$8F $E0 $00 $01 $0b
+	"default/08 SMW @6.brr" $FA $6A $00 $03 $00
+	"ds_rr/_bhhcrash.brr"	$9F $53 $00 $07 $ae
+	"ds_rr/_hihat.brr"   	$8F $E0 $00 $07 $a5
+	"ds_rr/_kickh.brr"   	$8F $E0 $00 $07 $a5
+	"ds_rr/_ride.brr"    	$8F $E0 $00 $07 $a5
+	"ds_rr/_snarehh.brr" 	$8F $E0 $00 $07 $a5
+	"ds_rr/_snareHi.brr" 	$8F $E0 $00 $07 $a5
+	"ds_rr/_tom.brr"     	$8F $E0 $00 $06 $6e
+}
+
+"BASS=@30"
+"BELLS=@31 y8"
+"GUITAR=@32 y10"
+"ORGAN=@33 y12"
+"PFLUTE=@34 y13"
+"STRINGS=@35"
+"SYNTH=@36"
+"VIOLIN=@37 y13"
+"HORN=@38"
+
+"CRASH=@39"
+"HIHAT=@40"
+"KICK=@41"
+"RIDE=@42"
+"SNARE=@43"
+"CLAP=@44"
+"TOM=@45"
+
+
+"VIBOFF=$DF $E5 $00 $00 $00"
+
+; Bass
+
+#0 BASS t62 ; $F4 $02     ; Enable light staccato = less pause btwn notes.
+/
+y10 v240
+o1
+(100)[d8.d32r16^32a32r32>d8e8.<a4^16
+a32r16^32>d8e8<g8.g32r32a4.]
+(102)[d8.d32r16^32a32r32>d8e8.<a4^16
+a32r16^32g8a8>e4<a4.]
+; measure 4
+(100)
+
+(106)[d8.d8a32r32>d8a8.<a4^16
+r8g16g32r32>a8<a4>a4.o1]
+
+; measure 8
+(108)[d8a8.a32r32>d8e8<a4.
+r8a8>d8.d32r8^32d8<a4
+d8a8.a32r32>d8e32r16^32<a4.
+r8g8a4^16a32r32>d4<a8]
+
+; measure 12
+(112)[d8a8.a32r32>d8e8<a4.]
+r8a8>d8.d32r8^32d8<a4
+a+8^16a+32r32>f8a+8>c8<f4.^16
+r16c8d8<g4>c4.o1
+
+; measure 16
+(108)
+
+; measure 20
+(120)[a+8^16a+32r32>f8a+8>c8.<f4^16o1]
+>c8.c32r32g32r16^32>c8d8.<g4^16o1
+(122)[b8.b32r32>f+8b8>c+32r8^32<f+4^16o1
+e8.r16b32r16^32>e8f+8^16<b4^16]
+
+; measure 24
+(124)[>a8e8a16a32r32b8.e8.<a4
+r8>a16a32r32d8.d32r8^32e4.o1]
+(126)[>g+8d+8g+16g+32r32a+32r8^32d+8^16<g+4
+r8>c+16c+32r32<f+8^16f+32r8^32g+4^8]
+
+; measure 28
+(128)[>f+8c+8f+8g+8^16c+8^16<f+4]
+(129)[r8b8b32r32e8e32r8^32f+4^8
+e8.e32r32b8>e8f+8^16<b4^16]
+r8b8>f+8e8r8<b4.
+
+; measure 32
+(124)
+(134)[>g+8d+32r16^32g+16g+32r32a+32r8^32d+8^16<g+4
+r8>c+16c+32r32d+8<f+4g+4^8]
+
+; measure 36
+(128)
+(137)[>g+8d+8g+8a+8^16d+8^16<g+4
+a8.a32r32>e8a8b32r8^32e4^16
+<b8>f+8b8>c+4<f+4^8o1]
+
+; ; measure 40 loop
+; (100)(102)
+; ; 44
+; (100)(106)
+; ; 48
+; (108)
+; ; 52
+; (112)
+; r8a8>d8.d32r8^32<a8>d4
+; <a+8^16a+32r32>f8a+8>c8<f4.^16
+; r16c8d8g4e4.o1
+; ; 56
+; (108)
+; ; 60
+; (120)
+; >c8.c32r32g8>c8d8.<g4^16o1
+; (122)
+; ; 64
+; (124)(126)
+; ; 68
+; >f+8c+8<g+8f+8^16>c+8^16<f+4
+; (129)
+; r8b8>f+8e8r8<a+4^8
+; ; 72
+; (124)(134)
+; ; 76
+; (128)(137)
+
+
+
+#1 ORGAN v182		; upper rock organ
+; measure 0
+o4 f+2<  v165a8 >d8 f+8 v176g+8
+^4< b4 >e8..r32 g+8.r16
+v162 a2  v148c8 v124f8 v150a16 r16 b8
+^2...r16
+
+; measure 4
+v186 f+2  <v162a8> d8 f+16r16 g+8
+^4 <b4 >e4 v184g+16r8.
+g2 v148 <b8> d8 g16r16 v186 a8
+^2... r16
+
+; measure 8
+v148 e1 f+1
+v160 e1^4 r8 v146 b4g4.
+; measure 12
+v158 e1 v188f+1
+v160 f4r8 f2r8
+v181 g4r8 g2^8
+
+; measure 16
+v150 e1 v122 f+1
+v168 g1 ^8. r8. b4g4e8
+; measure 20
+d2 r8 v154d8 e8 v164d8 
+^2 r8 v150d8 e8 d16r16
+a2... r16
+v124 e2... r16	; This is _MIDdle-upper not top. 
+
+; measure 24
+v150 g+4 r8 g+8^2
+r8 v140 g+8 r8 g+2^16 r16
+f+4 r8 f+4. r8 e1^16 r16
+; measure 28
+v150e1 v162e1
+v154 f+4 r8 d+1.^16 r16
+
+; measure 32
+v139 g+1^16 r8 g+8 r16 g+8^2
+v158f+2.. v134 e4. r8 v150 e2^16 r16
+; measure 36
+e1 f+1 g1
+a4 r8 a2 r8
+; measure 40 loop
+
+
+
+#2 ORGAN v170 o4	; _MIDdle rock organ
+; measure 0
+d2 r4. e8
+^4 r2.
+v148 f2 r4. v126 g8
+^4^8 v152>d2^16 r16 <
+; measure 4
+v186 c+2 r4. v168 e8
+^4 r2.
+; measure 6 lower harmony
+v162< b4. r2 > v182c+8
+^2... r16
+; measure 8		lower-_MIDdle harmony
+v138 o3 a1.. r4
+v142>c1^4 r4. e4.
+; measure 12
+v162 < a1^2... r16
+v148 a4 r8 a2 r8
+v174 >e4 r8 e2^8
+; measure 16
+v134 <a1 >c+1 v150 d1 ^8. r16^2.
+; measure 20
+v172 o3 a+1 >c2^8 r4.
+v158 d1 v168 <b2.. r8
+; measure 24
+o3 v144a4 r8 v128a8 ^2
+^16r16 a8 r8 a8^4.. r16
+v118 b4 r8 b4. r8 v140b8
+^1
+; measure 28
+o4 c+1          v154<b1
+>d+4 r8<b8^2    ^1
+; measure 32
+a1      ^16 r8 v126>e16. r16. v150e8^2
+< b2.. v138b8    ^4 r8 v150b8^2
+; measure 36
+a1
+v136b1
+>v174e1
+v150c+4 r8 c+2 r8
+
+
+#6 ORGAN v170		; lower rock organ
+o3
+; measure 0
+a4.r8 r4.b8
+^8.r16 r2.
+v130 >c4.r8 r4.d8
+^2...r16
+; measure 4
+v173 <a4..r16 r4. b8
+^4 r2.
+v162 <a1 ^1
+
+; measure 8
+v134 >d1.r2
+v118 g1^1
+; measure 12
+v150 d1^1
+<a+4r8 a+2r8
+>> v170 d4r8 c2^8
+
+; measure 16
+v150 <d1 ^1
+v126 c1 ^1
+; measure 20
+v157 f1 g2.r4
+v176 b1 f+2^8 r8
+	v160 o5e4	; This is the top note of the chord movement.
+
+; measure 24
+v151 o3 e4 r8 e8^2
+r8 v122 e8 r8 v144 e2^16 r16
+v120 d+4 r8 d+2 c+1^16 r16
+; measure 28
+v163f+2.... r32  a1
+v138 e4 r8e8 ^2  ^2... r16
+; measure 32
+v164 e1^16
+r8 v122e16.r16. v144e8^2
+v124 d+2.. v135c+8
+^4 r8 c+8^2
+; measure 36
+v164 f+1 v144 g+1
+v158 a2..^16. r32
+< v168 b4 r8 b2 r8
+
+; "CRASH"
+; "KICK"
+; "HIHAT"
+; "SNARE"
+; "TOM"
+; "SNARE"
+; "CLAP"
+
+"_PERC1=31"
+"_PERC2=32"
+"_PERC3=33"
+"_PERC4=34"
+"_SLOW_TOMS=35"
+"_FAST_TOMS=36"
+"_CRASH=37"
+"_BCRASH=38"
+"_BEAT=39"
+"_RIDEBEAT=40"
+"_MID=41"
+"_DENSE=42"
+"_END=43"
+
+
+
+#3 y10 o4		; percussion
+
+; measure 0
+(_CRASH)[v238 o4 CRASH c4]
+[[
+ (_PERC2)[v222 o4 SNARE c8 v204 KICK c8]
+ (_PERC3)[v156 o4 HIHAT c16c16 v204 KICK c8]
+ (_PERC4)[v224 o4 SNARE c8 v134 HIHAT c8]
+ (_PERC1)[v238 o4 KICK c16 v136 HIHAT c16c8]
+]]3
+(_PERC2)
+(_SLOW_TOMS)[v160 o4HIHAT c16 c16 v220TOMy14 f+8
+e16 e16 d+8 y10]
+
+; measure 4
+(_CRASH)
+[[(_PERC2) (_PERC3) (_PERC4) (_PERC1)]]3
+(_PERC2) (_PERC3)
+(_FAST_TOMS)[o4TOMy14 v220f16 v213e16 d+8 y10]
+
+; measure 8
+(_CRASH) (_PERC2) (_PERC3) (_PERC4)
+[[(_PERC1) (_PERC2) (_PERC3) (_PERC4)]]3
+; measure 12
+(_CRASH) [[(_PERC2) (_PERC3) (_PERC4) (_PERC1)]]3
+(_PERC2) (_PERC3) (_FAST_TOMS)
+; measure 16
+(_CRASH) [[(_PERC2) (_PERC3) (_PERC4) (_PERC1)]]7
+(_PERC2) (_PERC3) v204o4 SNARE c4
+; measure 24
+(_BCRASH)[o4 v236 CRASHc4 v216 SNAREc8 v142HIHATc8]
+(_BEAT)[o4 v226 KICKc8 v148 HIHATc8 v220 SNAREc8 v136 HIHATc8]7
+; measure 28
+(_BCRASH) (_BEAT)
+RIDE v238c4 v220 SNAREc8 v136 HIHATc8
+(_BEAT)3
+(_MID)[o4 v238 KICKc8 v134 HIHATc8 v200 SNAREc8 v206KICKc8
+	v153 HIHATc16c16 v134 c8 v200 TOMy14 f+16e8.y10]
+; measure 32
+(_BCRASH)(_BEAT)7
+; measure 36
+(_DENSE)[o4 v236 KICKc8 v134 HIHATc8 v208 SNAREc8 v136 HIHATc8]6
+(_END)[o4 v236 KICKc8 v134 HIHATc8 v214 CLAPc32c32 v145HIHAT c16 v208KICK c8
+	v162 HIHATc16 v208 KICKc8. v196 SNAREc8 v136 HIHATc8]r1r1r1r1
+
+
+
+#4
+
+; %miniprint stringsHi0
+STRINGS y7 v116 o5
+; measure 0
+f+2.. g+8   ^1
+a2.. b8     ^1
+; measure 4
+v122 f+2.. g+8   ^1
+g2 <b8> v144 d8 g8 v168a8
+v126 ^2 $E8 $60 $ba  ^4.. r16
+
+
+; %miniprint guitar8
+GUITAR	; y7,0,1
+v184 o4
+r4a8>d16r16 v172 <b8..$DD $00 $09 >e r32 <a16r16 v156>f+8
+^8 v184g8 v160f+8 d8 $DD $12 $01 c v174 c+8 $DD $00 $06 e <a16r16 v144@6a16r16 GUITAR v180b8 $DD $03 $01 >d
+^8 v172c16r16 <b16r16 >c8.r16 <g16r16 e4
+$DE $30 $0d $60 ^2. r4	; %trem 1 13 $50
+VIBOFF
+
+;miniprint pflute12
+
+PFLUTE
+o4 v125
+r4 v132 a16r16 v124 >d16r16 e8.r16 <a16r16 v110>f+8
+^16r16g8 f+8d8 e4<a16r16 v130>a8
+^8 g16r16 f+16r16 g8.r16d16r16 >d4
+^2. r4
+
+;miniprint guitar16
+
+GUITAR
+v192 o4
+r4a8>d16r16 v180e8. r16 <a16r16 v164>f+8 $DD $04 $08 e $DD $00 $0c f+
+^8 v192g8 v168f+8 d8 v184e8 <a16r16 v144HORNa16r16 v184GUITAR>d8
+^8c16r16 <b16r16 >c8.r16 <g16r16 e4     ; volumes are close enough to leave out changes
+$DE $30 $0d $90 ^2. r4
+VIBOFF
+
+;miniprint synth20
+SYNTH y7 v150 o4
+d2r8 v138d8   v148e8 $DD $0f $03 d+   c+8 $DD $00 $06 <a+ $DD $00 $0c b $DD $00 $03 >d
+^2r8  v134d8 v144e8 $DD $06 $12 <b a $DD $06 $0c >d
+^2. r4
+v188d+2 $DD $00 $0c a v140g+4. r8
+; measure 24
+(424)[
+v176o4
+r4d4 $DD $03 $06 e  a8r8  v194>d8 $DD $00 $06 f+ e8 $DE $30 $0f $40	; 3/2 delay
+^4.^4 $E8 $18 $b2    d+8 v178c+8 d+8
+^8. r16  <b8>d+8.r16 v166d+4 v196e8
+$DE $3c $0f $80 ^4.^8. r16 v176<b8g+8a8
+; measure 28    too lazy to add vxx
+^2r8 b8g+8 a8
+^4 $DD $06 $0f d+ $DD $00 $0f a v154 g+16r16e4 f+4r8 VIBOFF]
+
+;miniprint violinHi30
+
+VIOLIN
+v144 o5f+4 r8 v132 g+8^2
+^2... r16
+
+;miniprint synth32
+
+SYNTH y7
+(424)
+
+v168 o4g4 a8e4f+2^8  ^2$E8 $18 $00  ^8 r8
+
+
+#5
+;miniprint violin0
+VIOLIN
+v116 o5
+d2.. <b8^1
+v109>a2.. b8^1
+; measure 4
+v120 >f+2 < a8> d8 f+16r16 v134 g+8
+^4<b4 >e4 g+8. r16
+	$DE $48 $0d $60
+g2.. v144 a8
+^2... r16
+VIBOFF
+
+;miniprint strings8
+y8 STRINGS	; TODO %VOL?
+o5 v98 a1^1 v88 g1^4^8 v114b4 v92g8 v72e4
+
+; measure 12
+v80a1^1
+v52 g1
+v72e8 v88g8 v112>c8 d8. r16 v94e4.
+
+; measure 16
+o5 v88f+1^1
+d1^4.
+	v118b4 v92g8. r16 v74e8
+; measure 20
+< a+1 > v84 c1
+	d4^2 $E8 $48 $76  ^4 a2 g+4^4 $E8 $18 $9c 
+
+;miniprint violin24
+VIOLIN (524)[ o5
+r4 v130 c+4e8r8 v150 >e8c+8
+^2^8 <b8 v130 a8 b8
+^8.r16g+8b8.r16b4 v146 >c+8
+^2^16 r16
+o5 b8 v132g+8 a8
+; measure 28
+^2 r8 b8 g+8 a8
+^4 v76 g+16r16 v108 e4 f+8 r4]
+v128d+4 r8 v100<b8^2
+^2... r16
+(524)
+o5 v98g1
+v107c+8 e16r16
+	v127 a16r16 b8
+	r8 v156 >c+16r16 e8.r16
+
+
+
+#7 
+STRINGS
+y13 o4
+; measure 0
+v76 f+2.. a-8
+^1
+>e2.. f+8
+^1
+; measure 4
+v82 < f+2.. g+8
+^1
+>d2.. v124e8
+v94 $E8 $48 $8a  ^1
+
+;!print organMhi8
+
+ORGAN o4
+r1^1 v148 d1^4 r2. 
+
+; measure 12
+r1^1
+
+; v152 d4 r8 d8^2
+;miniprint bells14
+BELLS
+; "8=16r16"
+
+o5v171 a8g8f+8g8^8 d8 >d8^8 r1
+
+; measure 16
+;miniprint guitarLo16
+GUITAR v184 ; y7 sounds weird
+o4 r4 f+8 r8 >c+8. r8. v164d8 $DD $04 $08 c $DD $00 $0c d
+^8 r4. v182c+8 r4.
+
+; organ18
+ORGAN v150
+o4d1^8. r16^2. 
+
+; measure 20
+; pflute20
+PFLUTE 
+v116 o5
+o5 d2 r8 v88 d8 v108 e8d8
+^2 r8 v97 d8e8 v112 d8
+^2. r4
+
+ORGAN 
+o4 v146 g+4. v164 b8 ; TODO v142 %vbend
+	^2
+
+; measure 24
+; o4y10KICK
+; [r4 c4]7
+r1 r1 r1 r2r8
+
+; measure 27.101
+
+BELLS v202 o5
+	; I need to figure out what's the default q (to reset), and how the values are calculated?
+	; I'm sure this q command isn't correct. What's the correct q-command to make notes exactly half length?!
+"octaVe=a16>a16<"
+b8 g+8 r8
+
+; measure 28
+v167octaVe v144octaVe v127a12>v120a12<a12   r8 v203 b8g+8a8
+r4 v154g+8 v175 e8^8 f+8^4
+
+STRINGS y7
+o5 v150 f+4. v135 g+1 $E8 $60 $5e  ^2 r8
+
+; measure 32
+r1 r1 r1 r2r8
+BELLS v193 o5 b8g+8a8
+; measure 36
+^2 r8 v150 b8g+8a8
+^4 g+8 e4 f+4.
+
+; Bells
+v171 g4 v154 a8 v125 e4 f+4.
+	; ; 4/5 time
+	; ; 16 * 5/4 = 20
+	; [[f+16>f+16<]]5 f+20>f+20<f+20>f+20<f+20>f+8
+
+; ORGAN %vmod %organvol o4
+	; v140 e4r8 v154 c+2r8
+
+STRINGS y7
+o5 v113 c+8 e16.r32 a16.r32 v131b8 r8 > v150c+8 v131e4 $DD $00 $09 f+ $DD $00 $04 <b

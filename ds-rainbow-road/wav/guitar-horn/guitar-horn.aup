@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="guitar-horn_data" version="1.3.0" audacityversion="2.1.2" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.2330472133" zoom="24540.0917631636" rate="32000.0" snapto="on" selectionformat="samples" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="horn" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="32000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="8786">
+				<waveblock start="0">
+					<simpleblockfile filename="e000089c.au" len="8786" min="-0.30551" max="0.299665" rms="0.034025"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="1">
+				<controlpoint t="0.274531250000" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+		<waveclip offset="0.27456250">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="368">
+				<waveblock start="0">
+					<simpleblockfile filename="e00002e6.au" len="368" min="-0.32497" max="0.212171" rms="0.011097"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="0.000000000000" val="1.000000000000"/>
+				<controlpoint t="0.011468750000" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="guitar" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="32000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00096875">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="9154">
+				<waveblock start="0">
+					<simpleblockfile filename="e00009f1.au" len="9154" min="-0.325977" max="0.225764" rms="0.036799"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
