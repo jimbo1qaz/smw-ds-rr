@@ -1,6 +1,6 @@
 
 
-#4
+#4 REMOTE
 %isvol
 ; %miniprint stringsHi0
 STRINGS y7 v58 o5
@@ -18,7 +18,7 @@ GUITAR	; y7,0,1
 v92 o4
 r4a8>d16r16 v86 <b8..%pbend 0 1.5/8 >e r32 <a16r16 v78>f+8
 ^8 v92g8 v80f+8 d8 %pbend 3/8 1/48 c v87 c+8 %pbend 0 1/8
-	e <a16r16 v72@6a16r16 GUITAR v90b8 %pbend 1/16 1/32 >d
+	e <a16r16 v72HORNa16r16 GUITAR v90b8 %pbend 1/16 1/32 >d
 ^8 v86c16r16 <b16r16 >c8.r16 <g16r16 e4
 %vib:1 13 $60 ^2. r4	; %trem 1 13 $50
 VIBOFF
@@ -37,7 +37,7 @@ r4 v132 a16r16 v124 >d16r16 e8.r16 <a16r16 v110>f+8
 GUITAR
 v96 o4
 r4a8>d16r16 v90e8. r16 <a16r16 v82>f+8 %pbend 1/12 1/6 e %pbend 0 1/4 f+
-^8 v96g8 v84f+8 d8 v92e8 <a16r16 v72HORNa16r16 v92GUITAR>d8
+^8 v96g8 v84f+8 d8 v92e8 <a16r16 a16r16 v92GUITAR>d8
 ^8c16r16 <b16r16 >c8.r16 <g16r16 e4     ; volumes are close enough to leave out changes
 %vib:1 13 $90 ^2. r4
 VIBOFF
@@ -73,7 +73,7 @@ SYNTH y7
 v168 o4g4 a8e4f+2^8  ^2%vbend:1/2,0 ^8 r8
 
 
-#5
+#5 REMOTE
 ;miniprint violin0
 %notvol VIOLIN
 v116 o5
@@ -124,7 +124,7 @@ v107c+8 e16r16
 
 
 
-#7 
+#7 REMOTE 
 %notvol STRINGS
 y13 o4
 ; measure 0

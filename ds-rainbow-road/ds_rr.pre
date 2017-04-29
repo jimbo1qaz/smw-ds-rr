@@ -2,7 +2,7 @@
 
 %define organvol 1.0
 %define basspercvol 1
-%define vbell 1.07
+%define vbell 1.0
 
 #samples
 {
@@ -28,8 +28,9 @@
 {
 	"ds_rr/bass.brr"       	$8F $E0 $00 $0b $08
 	"ds_rr/bell.brr"       	$CF $F8 $00 $01 $66
+	; "ds_rr/bell.brr"     	$FF $F6 $00 $01 $66
 	"ds_rr/guitar-horn.brr"	$8F $E0 $00 $03 $d2
-	"ds_rr/organ.brr"      	$EF $C0 $00 $02 $48
+	"ds_rr/organ.brr"      	$EF $E0 $00 $02 $48
 	"ds_rr/pan.brr"        	$8F $E0 $00 $02 $a4
 	"ds_rr/strings.brr"    	$8F $E0 $00 $01 $9c
 	"ds_rr/synth.brr"      	$8F $E0 $00 $03 $8e
@@ -65,9 +66,16 @@
 
 "VIBOFF=$DF $E5 $00 $00 $00"
 
+; (!1)[$ED $80 $AF]	; GAIN
+;                  	; %vbend 1/12,0
+; (!2)[$F4 $09]    	; restore instrument
+"REMOTE= "         	; (!1, 3) (!2, -1)
+
 ; Bass
 %vmod %basspercvol
-#0 BASS t62 ; $F4 $02     ; Enable light staccato = less pause btwn notes.
+#0 REMOTE BASS t62
+
+$F4 $02	; light staccato
 /
 y10 v240
 o1
@@ -155,7 +163,7 @@ a8.a32r32>e8a8b32r8^32e4^16
 
 
 
-#1 ORGAN %vmod %organvol v182		; upper rock organ
+#1 REMOTE ORGAN %vmod %organvol v182		; upper rock organ
 ; measure 0
 o4 f+2<  v165a8 >d8 f+8 v176g+8
 ^4< b4 >e8..r32 g+8.r16
@@ -203,7 +211,7 @@ a4 r8 a2 r8
 
 
 
-#2 ORGAN v170 o4	; _MIDdle rock organ
+#2 REMOTE ORGAN v170 o4	; _MIDdle rock organ
 ; measure 0
 d2 r4. e8
 ^4 r2.
@@ -245,7 +253,7 @@ v136b1
 v150c+4 r8 c+2 r8
 
 
-#6 ORGAN v170		; lower rock organ
+#6 REMOTE ORGAN v170		; lower rock organ
 o3
 ; measure 0
 a4.r8 r4.b8
@@ -314,7 +322,7 @@ v158 a2..^16. r32
 
 %vmod %basspercvol
 
-#3 y10 o4		; percussion
+#3 REMOTE y10 o4		; percussion
 
 ; measure 0
 (_CRASH)[v238 o4 CRASH c4]
@@ -325,14 +333,14 @@ v158 a2..^16. r32
  (_PERC1)[v238 o4 KICK c16 v136 HIHAT c16c8]
 ]]3
 (_PERC2)
-(_SLOW_TOMS)[v160 o4HIHAT c16 c16 v220TOMy14 f+8
+(_SLOW_TOMS)[v160 o4HIHAT c16 c16 v220TOMy11 f+8
 e16 e16 d+8 y10]
 
 ; measure 4
 (_CRASH)
 [[(_PERC2) (_PERC3) (_PERC4) (_PERC1)]]3
 (_PERC2) (_PERC3)
-(_FAST_TOMS)[o4TOMy14 v220f16 v213e16 d+8 y10]
+(_FAST_TOMS)[o4TOMy11 v220f16 v213e16 d+8 y10]
 
 ; measure 8
 (_CRASH) (_PERC2) (_PERC3) (_PERC4)
@@ -351,7 +359,7 @@ e16 e16 d+8 y10]
 RIDE v238c4 v220 SNAREc8 v136 HIHATc8
 (_BEAT)3
 (_MID)[o4 v238 KICKc8 v134 HIHATc8 v200 SNAREc8 v206KICKc8
-	v153 HIHATc16c16 v134 c8 v200 TOMy14 f+16e8.y10]
+	v153 HIHATc16c16 v134 c8 v200 TOMy11 f+16e8.y10]
 ; measure 32
 (_BCRASH)(_BEAT)7
 ; measure 36

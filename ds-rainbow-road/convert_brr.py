@@ -4,6 +4,7 @@ import glob
 import re
 import shutil
 import sys
+import wave
 
 from scipy.io import wavfile
 from typing import List, Dict
@@ -32,7 +33,7 @@ def path_append(*it):
 path_append(os.curdir, r'C:\Program Files (x86)\sox-14-4-2')
 
 from plumbum import local, FG
-from plumbum.cmd import soxi, sox, brr_encoder, brr_decoder, cmd as _cmd
+from plumbum.cmd import sox, brr_encoder, brr_decoder, cmd as _cmd
 
 
 WAV = 'wav/'
@@ -91,8 +92,15 @@ class Converter:
         self.name = name
         self.wavname = wav+'/' + name + '.wav'
         self.brrname = brr+'/' + name + '.brr'
-        self.rate, data = wavfile.read(self.wavname)
-        self.len = len(data)
+
+        w = wave.open(self.wavname)
+        self.rate = w.getframerate()
+        self.len = w.getnframes()
+        #
+        # rate, data = wavfile.read(self.wavname)
+        # len_ = len(data)
+        # assert rate == self.rate
+        # assert len_ == self.len
 
     def get_len(self):
         # return int(soxi['-s', self.wavname]().strip())
@@ -107,6 +115,7 @@ class Converter:
 
 
     def attenuate(self, volume:Fraction):
+        # TODO: no more sox?
         quiet_name = self.wavname + ' attenuate.wav'
 
         args = ['-v', str(round_frac(volume)), self.wavname, quiet_name]
